@@ -3,9 +3,9 @@ from datetime import datetime
 from pytest import fixture
 from selenium import webdriver
 
-date_time      = datetime.now()
-date           = date_time.strftime("%b/%d/%Y %H:%M:%S")
-log_date       = date_time.strftime("%m%d%Y-%H%M%S")
+date_time = datetime.now()
+date      = date_time.strftime("%b/%d/%Y %H:%M:%S")
+log_date  = date_time.strftime("%m%d%Y-%H%M%S")
 
 def pytest_configure(config):
     '''
@@ -51,8 +51,8 @@ def invalid_test_data():
 @fixture
 def valid_test_data():
     valid_test_user = {
-        "username": "wronguser",
-        "password": "wrongpassword"
+        "username": "tomsmith",
+        "password": "SuperSecretPassword!"
     }
 
     return valid_test_user
