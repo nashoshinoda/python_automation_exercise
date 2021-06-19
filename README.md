@@ -15,7 +15,7 @@ This is a little project to test a website using the following tools:
     ```
 * Install developed modules with this command line:
     ```sh
-    pip install -r requirements.txt
+    pip install -e .
     ```
 * Run command **pytest** to execute all the tests available or **pytest /tests/PATH_OF_THE_TEST.py** to execute once in particular.
 * Run command **allure serve ./reports/html** to generate the HTML report once the test execution finished:
