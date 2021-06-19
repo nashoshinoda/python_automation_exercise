@@ -28,9 +28,9 @@ def browser():
     `Return:`
     `driver:` Selenium Webdriver Object.
     '''
-    chrome_options = webdriver.ChromeOptions()  # If you want to implement a Chrome option, just add the variabla as second parameter in line 33.
-    chrome_options.add_argument('--headless')   # Execute the tests without open the window browser.
-    driver = webdriver.Chrome('./resources/chromedriver.exe')
+    options = webdriver.ChromeOptions()  # If you want to implement a Chrome option, just add second parameter chrome_options=optionsin line 33 .
+    options.add_argument('--headless')   # Execute the tests without open the window browser.
+    driver = webdriver.Chrome('./resources/chromedriver.exe', chrome_options=options)
     driver.maximize_window()
 
     yield driver
