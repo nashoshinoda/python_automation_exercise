@@ -27,3 +27,4 @@ This is a little project to test the login section of website https://the-intern
     2021-06-19 14:06:09.114:INFO::main: Logging initialized @1697ms to org.eclipse.jetty.util.log.StdErrLog
     Server started at <http://ip:port/>. Press <Ctrl+C> to exit
     ```
+    A new window will be automatically opened showing the results of the tests.
