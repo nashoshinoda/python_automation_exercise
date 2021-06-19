@@ -1,5 +1,5 @@
+import logging
 from pages.homepage import HomePage
-import time
 
 class LoginTests:
     def test_login_with_invalid_data(self, browser, invalid_test_data):
