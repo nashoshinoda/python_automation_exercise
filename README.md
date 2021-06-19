@@ -1,7 +1,7 @@
 # Python Automation Exercise
 
 ### Summary
-This is a little project to test a website using the following tools:
+This is a little project to test the login section of website https://the-internet.herokuapp.com/ generatoing html, logs, xml files as reports and screenshots as well using the following tools:
 * Python
 * PyTest
 * Selenium
