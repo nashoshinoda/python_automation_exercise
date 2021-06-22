@@ -3,10 +3,6 @@ from datetime import datetime
 from pytest import fixture
 from selenium import webdriver
 
-date_time = datetime.now()
-date      = date_time.strftime("%b/%d/%Y %H:%M:%S")
-log_date  = date_time.strftime("%m%d%Y-%H%M%S")
-
 def pytest_configure(config):
     '''
     `Description:`
@@ -16,7 +12,7 @@ def pytest_configure(config):
     `config:` The pytest config object.
     '''
     if not config.option.log_file:
-        timestamp              = log_date
+        timestamp              = datetime.now().strftime("%m%d%Y-%H%M%S")
         config.option.log_file = './reports/log/TEST-' + timestamp + '.log'
 
 @fixture(scope="session")
