@@ -1,0 +1,10 @@
+[
+    {
+        "test_case_mark"       : "test_login",
+        "test_case_description": "Test Basic Login"
+    },
+    {
+        "test_case_mark"       : "test_checkbox",
+        "test_case_description": "Test Checkboxes"
+    }
+]

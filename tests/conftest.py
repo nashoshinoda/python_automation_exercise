@@ -1,7 +1,9 @@
-import logging
+import json
 from datetime import datetime
 from pytest import fixture
 from selenium import webdriver
+
+environment_file = json.load(open('./resources/environment.json'))
 
 def pytest_configure(config):
     '''
@@ -12,8 +14,7 @@ def pytest_configure(config):
     `config:` The pytest config object.
     '''
     if not config.option.log_file:
-        timestamp              = datetime.now().strftime("%m%d%Y-%H%M%S")
-        config.option.log_file = './reports/log/TEST-' + timestamp + '.log'
+        config.option.log_file = environment_file['reports']['logs'] +'TEST-' + datetime.now().strftime("%m%d%Y-%H%M%S") + '.log'
 
 @fixture(scope="session")
 def browser():
@@ -26,8 +27,8 @@ def browser():
     '''
     options = webdriver.ChromeOptions()  # If you want to implement a Chrome option, just add second parameter chrome_options=optionsin line 33 .
     options.add_argument('--headless')   # Execute the tests without open the window browser.
-    driver = webdriver.Chrome('./resources/chromedriver.exe', options=options)
-    driver.maximize_window()
+    driver = webdriver.Chrome(environment_file['webdrivers']['chrome']['path'])#, options=options)
+    driver.maximize_window()    # Maximize window in every execution.
 
     yield driver
 
@@ -35,11 +36,17 @@ def browser():
 
     return driver
 
+@fixture(scope="session")
+def url_to_test():
+    web_url = environment_file['url_to_test']
+
+    return web_url
+
 @fixture
 def invalid_test_data():
     invalid_test_user = {
-        "username": "wronguser",
-        "password": "wrongpassword"
+        "username": environment_file['test_credentials']['invalid_user']['username'],
+        "password": environment_file['test_credentials']['invalid_user']['password']
     }
 
     return invalid_test_user
@@ -47,8 +54,14 @@ def invalid_test_data():
 @fixture
 def valid_test_data():
     valid_test_user = {
-        "username": "tomsmith",
-        "password": "SuperSecretPassword!"
+        "username": environment_file['test_credentials']['valid_user']['username'],
+        "password": environment_file['test_credentials']['valid_user']['password']
     }
 
     return valid_test_user
+
+@fixture
+def get_screenshots_path():
+    screenshot_path = environment_file['reports']['screenshots']
+
+    return screenshot_path

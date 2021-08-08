@@ -1,0 +1,31 @@
+{
+    "url_to_test": "https://the-internet.herokuapp.com/",
+    "webdrivers" :
+    {
+        "chrome":
+            {
+                "path"    : "./resources/chromedriver.exe",
+                "version" : "92.0.4515.131"
+            }
+    },
+    "reports":
+    {
+        "allure"     : "./reports/html/",
+        "logs"       : "./reports/log/",
+        "screenshots": "./reports/screenshots/",
+        "xml"        : "./reports/xml/"
+    },
+    "test_credentials":
+    {
+        "invalid_user":
+        {
+            "username": "test",
+            "password": "test"
+        },
+        "valid_user":
+        {
+            "username": "tomsmith",
+            "password": "SuperSecretPassword!"
+        }
+    }
+}
