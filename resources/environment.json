@@ -5,7 +5,7 @@
         "chrome":
             {
                 "path"    : "./resources/chromedriver.exe",
-                "version" : "92.0.4515.131"
+                "version" : "113.0.5672.63"
             }
     },
     "reports":
